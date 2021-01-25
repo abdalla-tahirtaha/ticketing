@@ -1,0 +1,1 @@
+This directory content all kubernetes deployments manifest for ticketing application.
