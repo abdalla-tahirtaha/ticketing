@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-configmap
+data:
+  flask.cfg: |
+
+    ############################################################
+    #
+    # This is a sample flask.cfg for "developing" a Flask application
+    # This config overrides "project.config.settings"
+    # Example from: https://gitlab.com/patkennedy79/flask_user_management_example
+    ##########################################################
+    import os
+    # Get the folder of the top-level directory of this project
+    BASEDIR = os.path.abspath(os.path.dirname(__file__))
+    WTF_CSRF_ENABLED = True
+    DEBUG = True
+    # Bcrypt algorithm hashing rounds
+    #BCRYPT_LOG_ROUNDS = 15
+    # Database parameters:
+    MONGODB_HOST = "mongo-db-0.database"
+    MONGODB_DB = "test"
+

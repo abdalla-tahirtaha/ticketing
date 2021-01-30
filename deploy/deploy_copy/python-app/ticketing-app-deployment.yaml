@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticketing-app
+  labels:
+    app: ticketing-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ticketing-app
+  template:
+    metadata:
+      labels:
+        app: ticketing-app
+    spec:
+      containers:
+        - name: ticketing-app
+          image: gcr.io/agarik-tahirtaha-dev/ticketing-app:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          volumeMounts:
+          - name: app-config
+            mountPath: /opt/ticketingSystem/instance
+      volumes:
+      - name: app-config
+        configMap:
+         name: app-configmap
+         
+          
+          
